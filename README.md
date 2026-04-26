@@ -121,7 +121,6 @@ def extract(file_path: str) -> dict | None:
     if not (parser := parse_html(file_path)):
         return None
     p = wrap_parser(parser)
-    # 同じ dt 群から項目を複数取るときは re で text を一度だけ切り出す
     dt_grep = p.ss('dt').re
     return {
         'URL': p.url,
